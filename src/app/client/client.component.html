@@ -1,0 +1,43 @@
+<div class="container">
+  <header class="jumbotron">
+    <div class="card">
+      <div class="card-header">
+        TATA - DESAFIO TECNICO
+      </div>
+      <div class="card-header">
+        Ruben Jonatan Maza Vilchez
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">Client</h5>
+        <form [formGroup]="registerForm" (ngSubmit)="postClient()">
+          <div class="form-group">
+            <label for="txtName">Name</label>
+            <input formControlName="name" type="text" class="form-control" placeholder="Enter name">
+            <small class="form-text text-muted">Enter your name.</small>
+          </div>
+          <div class="form-group">
+            <label for="txtLastName">Last Name</label>
+            <input formControlName="lastName" type="text" class="form-control" placeholder="Last Name">
+            <small class="form-text text-muted">Enter your last name.</small>
+          </div>
+          <button type="submit" class="btn btn-primary" [disabled]="registerForm.invalid">Submit</button>
+        </form>
+      </div>
+    </div>
+  </header>
+  <h5 class="card-title">Listado</h5>
+  <table class="table">
+    <thead class="thead-dark">
+      <th>Id</th>
+      <th>Name</th>
+      <th>Last Name</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of listClient">
+        <td>{{item['id']}}</td>
+        <td>{{item['name']}}</td>
+        <td>{{item['lastName']}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
